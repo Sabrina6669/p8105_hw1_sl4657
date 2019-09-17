@@ -389,18 +389,18 @@ lo_df</code></pre>
 <pre><code>## # A tibble: 8 x 4
 ##    sample vec_logical vec_char vec_factor
 ##     &lt;dbl&gt; &lt;lgl&gt;       &lt;chr&gt;    &lt;fct&gt;     
-## 1 -0.207  FALSE       A        white     
-## 2 -0.412  FALSE       B        red       
-## 3  0.0969 TRUE        C        black     
-## 4  0.841  TRUE        D        red       
-## 5  2.42   TRUE        E        white     
-## 6  0.0622 TRUE        F        red       
-## 7  0.0255 TRUE        G        black     
-## 8  0.512  TRUE        H        white</code></pre>
+## 1  0.609  TRUE        A        white     
+## 2 -0.731  FALSE       B        red       
+## 3  0.830  TRUE        C        black     
+## 4 -1.14   FALSE       D        red       
+## 5 -0.989  FALSE       E        white     
+## 6  0.379  TRUE        F        red       
+## 7 -0.725  FALSE       G        black     
+## 8  0.0894 TRUE        H        white</code></pre>
 <pre class="r"><code>mean(pull(lo_df, sample))</code></pre>
-<pre><code>## [1] 0.4174823</code></pre>
+<pre><code>## [1] -0.2098996</code></pre>
 <pre class="r"><code>mean(pull(lo_df, vec_logical))</code></pre>
-<pre><code>## [1] 0.75</code></pre>
+<pre><code>## [1] 0.5</code></pre>
 <pre class="r"><code>mean(pull(lo_df, vec_char))</code></pre>
 <pre><code>## Warning in mean.default(pull(lo_df, vec_char)): argument is not numeric or
 ## logical: returning NA</code></pre>
