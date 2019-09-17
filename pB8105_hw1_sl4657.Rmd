@@ -1,0 +1,61 @@
+---
+title: "p8105_hw1_sl4657"
+output: html_document
+---
+
+# Problem 1
+## create a data frame
+```{r setup}
+library(tidyverse)
+
+lo_df = tibble(
+  sample = rnorm(8),
+  vec_logical = sample > 0,
+  vec_char = c("A", "B", "C", "D", "E", "F", "G", "H"),
+  vec_factor = factor(c("white", "red", "black", "red", "white", "red", "black", "white"))
+)
+lo_df
+mean(pull(lo_df, sample))
+mean(pull(lo_df, vec_logical))
+mean(pull(lo_df, vec_char))
+mean(pull(lo_df, vec_factor))
+```
+
+```{r, eval=FALSE}
+num_resl <- as.numeric(pull(lo_df, vec_logical))
+prod(num_resl)
+fac_resl <- as.factor(pull(lo_df, vec_logical))
+prod(fac_resl)
+fac_resl <- as.factor(pull(lo_df, vec_logical))
+num_resl2 <- as.numeric(fac_resl)
+prod(num_resl2)
+## seems like only numeric vector can do arithmetic operation
+```
+
+# Problem 2
+## create a data frame
+```{r}
+set.seed(1)
+plot_df = tibble(
+  x = rnorm(500),
+  y = rnorm(500),
+  vec_log = x + y > 1
+)
+num_vec <- as.numeric(pull(plot_df, vec_log))
+fac_vec <- as.factor(pull(plot_df, vec_log))
+plot_df
+```
+The data frame have `r nrow(plot_df)` rows and `r ncol(plot_df)` columns, the mean of `x` is `r mean(pull(plot_df, x))`, the median of `x` is `r median(pull(plot_df, x))`, the standard deviation of `x` is `r sd(pull(plot_df, x))`, the proportion of `x + y > 1` is `r sum(pull(plot_df, vec_log))/length(pull(plot_df, vec_log))`.
+
+## make a scatterplot
+```{r}
+plot_df %>% 
+  ggplot(aes(x = x, y = y, color = vec_log)) + geom_point()
+ggsave("scatter_plot_log.pdf")
+plot_df %>% 
+ggplot(aes(x = x, y = y, color = num_vec)) + geom_point()
+plot_df %>% 
+ggplot(aes(x = x, y = y, color = fac_vec)) + geom_point()
+
+```
+
