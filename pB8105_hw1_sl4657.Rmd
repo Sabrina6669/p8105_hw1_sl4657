@@ -1,13 +1,13 @@
 ---
 title: "p8105_hw1_sl4657"
-output: html_document
+author: "Si Li" 
+output: github_document
 ---
 
 # Problem 1
 ## create a data frame
 ```{r setup}
 library(tidyverse)
-
 lo_df = tibble(
   sample = rnorm(8),
   vec_logical = sample > 0,
